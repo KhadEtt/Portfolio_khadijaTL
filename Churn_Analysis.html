@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Marketing Analytics Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Simplified Navbar */
+        #nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 2px 0;
+            z-index: 1000;
+        }
+
+        #nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2px;
+        }
+
+        #nav li {
+            font-size: 14px;
+        }
+
+        #nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        #nav a:hover {
+            color: #00c6ff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .screenshot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .screenshot img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+
+        
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .carousel img {
+            width: 60%;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+        
+        .carousel button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel button:hover {
+            background-color: #00c6ff;
+        }
+        
+        .carousel button:focus {
+            outline: none;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-top: 0; /* Remove extra margin */
+            padding-bottom: 10 px;
+            padding-top: 10px;
+        }
+        
+        #analytics {
+            padding-top: 80px; /* Add some padding to avoid overlap */
+            position: relative;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Make text stand out */
+            background: url('images/marketing-bg.png') no-repeat center center;
+            background-size: cover;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            padding: 250px 20px;
+            padding-bottom: 10px;
+        }
+        #analytics::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0); /* Dark overlay for contrast .6*/
+            z-index: 0;
+
+        }
+        
+        #analytics .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+
+        #analytics h1 {
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px 40px; 
+            border-radius: 12px;
+            font-size: 3.5rem; 
+            color: #ffffff; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+        section {
+            padding: 5px 0px; 
+            margin: 0px 0; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #nav a.active {
+            color: #fff; /* Example: white text for the active link */
+            background-color: #00c6ff; /* Example: blue background for the active link */
+            border-radius: 5px; /* Optional styling */
+        }
+        #start{
+            padding-top: 0;
+            padding-bottom: 10px;
+        }
+        .responsive-image {
+            width: 80%;
+            max-width: 100%; /* Ensures image doesn't exceed container width */
+            height: auto; /* Maintains aspect ratio */
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Portfolio</a></li> 
+        <li><a href="#start">Marketing Analytics</a></li> 
+        <li><a href="#sql-code">Data Cleaning</a></li>
+        <li><a href="#data-model">Data Modeling</a></li>
+        <li><a href="#vis">Visualization</a></li>
+        <li><a href="#data-analysis">Analysis</a></li>
+    </ul>
+</nav>
+
+<!-- Marketing Analytics Section -->
+<section id="start">
+<div id="analytics" style="background: url('images/Churn_prj/background2.png') no-repeat center center; background-size: cover; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); padding: 250px 0px;">
+    <div class="container" style="text-align: center;">
+        <h1 style="font-size: 3rem; margin-bottom: 20px;">Customer Churn Analysis</h1>
+    </div>
+</div>
+<!-- introduction -->
+<div>
+    <div class="container">
+      <p> </p>
+      <p>
+        The banking industry faces a significant challenge with customer churn, which directly impacts profitability and growth. This project focuses on a detailed churn analysis of bank customers to uncover critical insights into customer behavior, identify patterns contributing to churn, and recommend strategies for retention. Using a comprehensive dataset, various factors such as demographics, activity status, credit scores, and account balances were analyzed. The goal is to provide actionable insights that can help the bank mitigate churn and improve customer satisfaction.      </p>
+    </div>
+  
+    <div class="container">
+      <h2>Problem statement</h2>
+      <p>
+        Customer churn remains a key obstacle for the banking sector, as retaining existing customers is far more cost-effective than acquiring new ones. High churn rates often result from dissatisfaction, lack of engagement, or competition. For this analysis, the objective is to identify the characteristics of customers most likely to churn and pinpoint actionable trends from the dataset to enable the bank to design targeted strategies. Understanding churn drivers such as age, account balance, and credit scores is vital for predicting future behavior and formulating retention strategies.      
+      </p>
+    </div>
+</div>
+</section>
+
+<!-- SQL Code Section -->
+<section id="sql-code" class="container">
+    <h2>Data Cleansing & Transformation (SQL)</h2>
+    <p> 
+        The dataset used for this project required significant preprocessing to ensure accuracy and reliability. Excel was employed to clean and transform the raw data into a structured format suitable for analysis. This included handling missing values, ensuring consistent formatting, and creating calculated columns such as churn rates and age groups. Additionally, redundant entries were removed, and numerical values were standardized to maintain consistency. The cleaned dataset provided the foundation for generating meaningful insights in subsequent stages.
+    </p>
+</section>
+
+<!-- Data Model Section -->
+<section id="data-model" class="container">
+    <p> </p>
+    <h2>Data Model</h2>
+    <p>
+        The data model shown in the image represents the relationships between key entities in the dataset: Customer Data, Account Balance, Age Groups, and Credit Scores.
+    </p>
+    <ul>
+        <li><strong>•	Customer Data </strong>serves as the central table, containing fields such as activity status, age, country, and churn status.</li>
+        <li><strong>•	The Account Balance </strong>table links through an ID and provides detailed balance information for each customer.</li>
+        <li><strong>•	The Age Groups </strong>table classifies customers into specific demographic categories, aiding in age-based analysis.</li>
+        <li><strong>•	The Credit Scores </strong>table connects through a unique identifier to provide creditworthiness insights for each customer.</li>
+    </ul>
+    <img src="images/Churn_prj/data_model.JPG" alt="Data Model Screenshot" style="width: 100%; border-radius: 8px;" />
+    <p>
+        This star schema model facilitates efficient data analysis and visualization, ensuring seamless integration and interaction between different data attributes.
+    </p>
+</section>
+
+<!-- Visualization Section -->
+<section id="vis" class="container">
+    <h2>Churn analysis dashboard </h2>
+    <p>
+        This churn analysis dashboard provides insights into bank customer demographics, behavior, and churn rates across various factors such as gender, activity status, credit card ownership, country, product type, age groups, credit scores, and account balance.
+    </p>
+    <div class="carousel">
+        <img id="carousel-image" src="images/Churn_prj/background_01.JPG" alt="Dashboard Visualization" />
+    </div>
+</section>
+
+
+<!-- Overview Analysis and Recommendations Section -->
+<section id="data-analysis" class="container">
+    <p> </p>
+    <h2>Project Analysis</h2>
+
+    <div class="analysis-section">
+        <h3>Key Observations</h3>
+
+        <h4>1. Customer Demographics and Activity:</h4>
+        <ul>
+            <li><b>Gender Distribution:</b> The gender distribution is fairly balanced, with male and female customers represented equally. This indicates no significant churn discrepancy based on gender.</li>
+            <li><b>Activity Status:</b> A substantial portion of customers are inactive, which could correlate with a higher likelihood of churn.</li>
+            <li><b>Credit Card Ownership:</b> Most customers own a credit card, suggesting that the bank has successfully cross-sold credit cards. However, credit card ownership may not directly impact churn without further insights.</li>
+            <li><b>Country Distribution:</b> France has the highest number of customers, followed by Germany and Spain. Churn rates could vary by country, potentially due to differences in customer needs or satisfaction.</li>
+        </ul>
+    
+        <h4>2. Churn Analysis by Product:</h4>
+        <ul>
+            <li><b>Product Distribution:</b> Product 1 is the most popular among customers, while Product 3 has the lowest customer base. This could imply that Product 1 is either a more attractive offering or has better customer retention. However, Product 3 might need adjustments or more targeted marketing to improve uptake.</li>
+        </ul>
+    
+        <h4>3. Churn Rate by Age Group:</h4>
+        <ul>
+            <li><b>Age Groups:</b> Customers aged 31-40 form the largest customer base, but those aged 51-60 have the highest churn rate at 56%, followed by ages 41-50 at 30.8%.</li>
+            <li><b>Younger Customers:</b> Younger customers (under 30) and those above 71 have minimal churn rates, indicating that the middle-aged demographic is the most at-risk for churn.</li>
+        </ul>
+    
+        <h4>4. Churn Rate by Credit Score:</h4>
+        <ul>
+            <li><b>Largest Customer Group:</b> The 601-700 credit score range holds the largest customer group, with lower churn rates around 19.7%.</li>
+            <li><b>Low Credit Scores:</b> Customers with lower credit scores (below 400) experience a high churn rate of 100%, suggesting that poor credit scores may correlate with higher churn. The bank may need to review policies for supporting lower credit score customers to reduce churn.</li>
+        </ul>
+    
+        <h4>5. Churn Rate by Account Balance:</h4>
+        <ul>
+            <li><b>High Churn:</b> Customers with balances between 10K and 100K have the highest churn rate at 100%, while customers with higher balances (100K-200K) have a churn rate of 25%.</li>
+            <li><b>Lower Churn:</b> Higher account balances are associated with lower churn rates, suggesting that wealthier customers are more likely to stay with the bank.</li>
+        </ul>
+    
+        <div class="recommendations">
+            <h2>Future Recommendations</h2>
+            <ul>
+                <li><b>Improve Engagement with Inactive Customers:</b> Design a reactivation campaign for inactive customers, offering incentives like interest rate benefits or fee waivers for meeting activity thresholds.</li>
+                <li><b>Target High-Risk Age Groups:</b> Implement personalized retention programs for customers aged 51-60 and 41-50, focusing on loyalty programs and tailored financial services.</li>
+                <li><b>Refine Product Offerings:</b> Relaunch or improve Product 3 and promote add-on services with Product 1 to boost retention.</li>
+                <li><b>Support Low Credit Score Customers:</b> Introduce financial counseling or credit improvement programs for customers with credit scores below 400 to reduce churn.</li>
+                <li><b>Focus on High-Balance Customers:</b> Offer exclusive benefits to customers with balances between 100K-200K, such as personalized wealth management services.</li>
+                <li><b>Regional Strategy Optimization:</b> Develop specific retention strategies for France and gather insights from Germany and Spain to address regional churn drivers.</li>
+                <li><b>Optimize Customer Segmentation:</b> Use data to segment customers by risk level and tailor communications for high-risk groups.</li>
+                <li><b>Monitor Churn Indicators:</b> Regularly review churn metrics to adapt strategies in real-time.</li>
+            </ul>
+            <p>By addressing these recommendations, the bank can proactively mitigate churn and enhance customer retention.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- JS Code -->
+<script>
+    const images = [
+        'images/Sales_prj/dashboard_02.JPG',
+        'images/Sales_prj/dashboard_03.JPG',
+        'images/Sales_prj/dashboard_01.JPG' // Add more images as needed
+    ];
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const carouselImage = document.getElementById('carousel-image');
+        carouselImage.src = images[index];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
+        showImage(currentIndex);
+    }
+
+
+
+
+    document.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#nav a');
+    
+        sections.forEach((section, i) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[i].classList.add('active');
+            }
+        });
+    });
+    
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+    
+        function setActiveLink() {
+            let currentSection = null;
+    
+            // Check which section is in view
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+    
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.id;
+                }
+            });
+    
+            // Update the active link
+            navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href").substring(1) === currentSection);
+            });
+        }
+    
+        window.addEventListener("scroll", setActiveLink);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+    
+        function setActiveLink() {
+            let currentSection = null;
+    
+            // Check which section is in view
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+    
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.id;
+                }
+            });
+    
+            // Update the active link
+            navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href").substring(1) === currentSection);
+            });
+        }
+    
+        window.addEventListener("scroll", setActiveLink);
+    });
+    
+</script>
+
+</body>
+</html>

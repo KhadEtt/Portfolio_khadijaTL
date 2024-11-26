@@ -1,0 +1,550 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Marketing Analytics Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Simplified Navbar */
+        #nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 2px 0;
+            z-index: 1000;
+        }
+
+        #nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2px;
+        }
+
+        #nav li {
+            font-size: 14px;
+        }
+
+        #nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        #nav a:hover {
+            color: #00c6ff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .screenshot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .screenshot img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+
+        
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .carousel img {
+            width: 60%;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+        
+        .carousel button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel button:hover {
+            background-color: #00c6ff;
+        }
+        
+        .carousel button:focus {
+            outline: none;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-top: 0; /* Remove extra margin */
+        }
+        
+        #analytics {
+            padding-top: 80px; /* Add some padding to avoid overlap */
+            position: relative;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Make text stand out */
+            background: url('images/marketing-bg.png') no-repeat center center;
+            background-size: cover;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            padding: 250px 20px;
+            padding-bottom: 10px;
+        }
+        #analytics::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Dark overlay for contrast .6*/
+            z-index: 0;
+
+        }
+        
+        #analytics .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+
+        #analytics h1 {
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px 40px; 
+            border-radius: 12px;
+            font-size: 3.5rem; 
+            color: #ffffff; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+        section {
+            padding: 5px 0px; 
+            margin: 0px 0; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #nav a.active {
+            color: #fff; /* Example: white text for the active link */
+            background-color: #00c6ff; /* Example: blue background for the active link */
+            border-radius: 5px; /* Optional styling */
+        }
+        #start{
+            padding-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Portfolio</a></li> 
+        <li><a href="#start">Marketing Analytics</a></li> 
+        <li><a href="#data-model">Data Modeling</a></li>
+        <li><a href="#sql-code">Data Cleaning</a></li>
+        <li><a href="#python-code">Sentiment Analysis</a></li>
+        <li><a href="#vis">Visualization</a></li>
+        <li><a href="#data-analysis">Analysis</a></li>
+    </ul>
+</nav>
+
+<!-- Marketing Analytics Section -->
+<section id="start">
+<div id="analytics" style="background: url('images/marketing-bg.png') no-repeat center center; background-size: cover; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); padding: 250px 0px;">
+    <div class="container" style="text-align: center;">
+        <h1 style="font-size: 3rem; margin-bottom: 20px;">Marketing Analytics</h1>
+    </div>
+</div>
+<!-- introduction -->
+<div>
+    <div class="container">
+      <p> </p>
+      <p>
+        In today’s competitive landscape, effective data visualization and analytics are crucial for understanding customer behavior and optimizing marketing strategies. Businesses face challenges such as declining conversion rates, reduced customer engagement, and inconsistent feedback scores, which directly impact performance and customer satisfaction.
+      </p>
+      <p>
+        This project aims to provide a comprehensive overview of key trends, analyze the underlying causes, and recommend actionable strategies. By examining conversion rates, customer engagement metrics, and sentiment analysis, we strive to identify areas for improvement and deliver targeted insights to enhance outcomes.
+      </p>
+    </div>
+  
+    <div class="container">
+      <h2>Problem Statement</h2>
+      <ul>
+        <li><strong>Decreased Conversion Rates:</strong> Conversion rates fluctuated throughout the year, with significant drops during certain months, impacting overall revenue and growth potential.</li>
+        <li><strong>Reduced Customer Engagement:</strong> A decline in social media views and interactions, particularly in the latter half of the year, signals a need for more engaging and effective content strategies.</li>
+        <li><strong>Customer Feedback Challenges:</strong> While overall ratings remain stable, they fall short of the target, with mixed and negative feedback highlighting specific areas requiring attention.</li>
+      </ul>
+    </div>
+  
+    <div class="container">
+      <h2>Goals</h2>
+      <ul>
+        <li><strong>Increase Conversion Rates:</strong> Identify trends and factors influencing low conversion months and recommend targeted interventions to optimize the customer funnel.</li>
+        <li><strong>Enhance Customer Engagement:</strong> Analyze content performance to understand which formats and platforms drive higher interaction and use this insight to revitalize content strategies.</li>
+        <li><strong>Improve Customer Feedback Scores:</strong> Leverage sentiment analysis and feedback patterns to address recurring issues, aiming to boost overall satisfaction and ratings.</li>
+      </ul>
+      <p>
+        By addressing these challenges, this project seeks to transform data-driven insights into actionable recommendations for measurable business improvements.
+      </p>
+    </div>
+</div>
+</section> 
+<!-- Data Model Section -->
+<section id="data-model" class="container">
+    <h2>Data Model</h2>
+    <p>The data model integrates customer, product, and engagement data to provide a comprehensive view of marketing performance and customer behavior. It includes both fact and dimension tables linked together for analytics:</p>
+    <h3>Fact Tables:</h3>
+    <ul>
+        <li><strong>Fact Engagement Data:</strong> Tracks campaign performance metrics like clicks, views, and engagement data.</li>
+        <li><strong>Fact Customer Journey:</strong> Captures customer interactions across stages, with details like actions, duration, and visit dates.</li>
+        <li><strong>Fact Customer Reviews:</strong> Contains customer ratings, reviews, and associated sentiments for products.</li>
+    </ul>
+    <h3>Dimension Tables:</h3>
+    <ul>
+        <li><strong>Dim Product:</strong> Includes product details like price, category, and name.</li>
+        <li><strong>Dim Customer:</strong> Stores customer demographics such as age, city, and gender.</li>
+        <li><strong>Calendar:</strong> A date dimension table for time-based analysis.</li>
+    </ul>
+    <img src="images/Marketing_Prj/data_model.JPG" alt="Data Model Screenshot" style="width: 100%; border-radius: 8px;" />
+</section>
+
+<!-- SQL Code Section -->
+<section id="sql-code" class="container">
+    <p> </p>
+    <h2>Data Cleaning and SQL Code</h2>
+    <p> 
+        Data cleaning and preprocessing are vital steps in ensuring the quality and accuracy of analysis. A range of SQL queries were used for data cleaning and preprocessing. Using SQL, I streamlined data workflows by crafting queries to categorize products based on pricing tiers, enrich customer data with geographic insights by joining dim_customers and dim_geography, and identify and tag duplicate records with Common Table Expressions (CTEs). Additionally, I addressed whitespace issues in review text for better readability and cleaned the engagement_data table to normalize values for advanced analytics. These SQL solutions exemplify my ability to handle complex data challenges efficiently and prepare datasets for actionable insights.
+        Below is a featured example:
+    </p>
+    <div  id="sql-code" class="code-block">
+        <pre>
+            -- Outer query selects the final cleaned and standardized data
+    
+            SELECT 
+                JourneyID,  -- Selects the unique identifier for each journey to ensure data traceability
+                CustomerID,  -- Selects the unique identifier for each customer to link journeys to specific customers
+                ProductID,  -- Selects the unique identifier for each product to analyze customer interactions with different products
+                VisitDate,  -- Selects the date of the visit to understand the timeline of customer interactions
+                Stage,  -- Uses the uppercased stage value from the subquery for consistency in analysis
+                Action,  -- Selects the action taken by the customer (e.g., View, Click, Purchase)
+                COALESCE(Duration, avg_duration) AS Duration  -- Replaces missing durations with the average duration for the corresponding date
+            FROM 
+                (
+                    -- Subquery to process and clean the data
+                    SELECT 
+                        JourneyID,  -- Selects the unique identifier for each journey to ensure data traceability
+                        CustomerID,  -- Selects the unique identifier for each customer to link journeys to specific customers
+                        ProductID,  -- Selects the unique identifier for each product to analyze customer interactions with different products
+                        VisitDate,  -- Selects the date of the visit to understand the timeline of customer interactions
+                        UPPER(Stage) AS Stage,  -- Converts Stage values to uppercase for consistency in data analysis
+                        Action,  -- Selects the action taken by the customer (e.g., View, Click, Purchase)
+                        Duration,  -- Uses Duration directly, assuming it's already a numeric type
+                        AVG(Duration) OVER (PARTITION BY VisitDate) AS avg_duration,  -- Calculates the average duration for each date, using only numeric values
+                        ROW_NUMBER() OVER (
+                            PARTITION BY CustomerID, ProductID, VisitDate, UPPER(Stage), Action  -- Groups by these columns to identify duplicate records
+                            ORDER BY JourneyID  -- Orders by JourneyID to keep the first occurrence of each duplicate
+                        ) AS row_num  -- Assigns a row number to each row within the partition to identify duplicates
+                    FROM 
+                        dbo.customer_journey  -- Specifies the source table from which to select the data
+                ) AS subquery  -- Names the subquery for reference in the outer query
+            WHERE 
+                row_num = 1;  -- Keeps only the first occurrence of each duplicate group identified in the subquery
+        </pre>
+    </div>
+</section>
+
+<!-- Python Code Section -->
+<section id="python-code" class="container">
+    <p></p>
+    <h2>Python Code for Sentiment Analysis</h2>
+    <p>
+        This sentiment analysis workflow utilizes Python to process customer reviews extracted from a SQL Server database. After establishing a secure connection to the database, the review data is fetched into a pandas DataFrame using the pyodbc library. The VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment analyzer from the NLTK library is then used to analyze the sentiment of the review text.
+        <br/>
+        The analysis involves several steps:
+        <br/>
+        <strong>Sentiment Scoring:</strong><br/>
+        Each review's text is processed using VADER to compute a compound sentiment score ranging from -1 (most negative) to 1 (most positive).
+        <br/>
+        <strong>Sentiment Categorization:</strong><br/>
+        The sentiment scores are combined with the review ratings to classify each review into meaningful categories such as Positive, Negative, Neutral, or Mixed Positive/Negative, depending on the interplay of text sentiment and numeric ratings.
+        <br/>
+        <strong>Sentiment Bucketing:</strong><br/>
+        The compound scores are further grouped into predefined ranges (e.g., -1.0 to -0.5 for strongly negative, 0.5 to 1.0 for strongly positive), providing a structured view of sentiment intensity.
+        <br/>
+        The resulting dataset, enriched with sentiment scores, categories, and buckets, is saved as a CSV file for further analysis and visualization. This comprehensive approach not only evaluates textual sentiment but also contextualizes it with customer-provided ratings, ensuring a robust understanding of customer feedback.
+    </p>
+    <div id="python-code" class="code-block">
+        <pre>
+            # Define a function to categorize sentiment using both the sentiment score and the review rating
+            def categorize_sentiment(score, rating):
+                # Use both the text sentiment score and the numerical rating to determine sentiment category
+                if score > 0.05:  # Positive sentiment score
+                    if rating >= 4:
+                        return 'Positive'  # High rating and positive sentiment
+                    elif rating == 3:
+                        return 'Mixed Positive'  # Neutral rating but positive sentiment
+                    else:
+                        return 'Mixed Negative'  # Low rating but positive sentiment
+                elif score < -0.05:  # Negative sentiment score
+                    if rating <= 2:
+                        return 'Negative'  # Low rating and negative sentiment
+                    elif rating == 3:
+                        return 'Mixed Negative'  # Neutral rating but negative sentiment
+                    else:
+                        return 'Mixed Positive'  # High rating but negative sentiment
+                else:  # Neutral sentiment score
+                    if rating >= 4:
+                        return 'Positive'  # High rating with neutral sentiment
+                    elif rating <= 2:
+                        return 'Negative'  # Low rating with neutral sentiment
+                    else:
+                        return 'Neutral'  # Neutral rating and neutral sentiment
+            
+            # Define a function to bucket sentiment scores into text ranges
+            def sentiment_bucket(score):
+                if score >= 0.5:
+                    return '0.5 to 1.0'  # Strongly positive sentiment
+                elif 0.0 <= score < 0.5:
+                    return '0.0 to 0.49'  # Mildly positive sentiment
+                elif -0.5 <= score < 0.0:
+                    return '-0.49 to 0.0'  # Mildly negative sentiment
+                else:
+                    return '-1.0 to -0.5'  # Strongly negative sentiment
+        </pre>
+    </div>
+</section>
+
+<!-- Visualization Section -->
+<section id="vis" class="container">
+    <p> </p>
+    <h2>Data Visualization</h2>
+    <div class="carousel">
+        <button class="prev" onclick="prevImage()">❮</button>
+        <img id="carousel-image" src="images/Marketing_Prj/dashboard_01.JPG" alt="Dashboard Visualization" />
+        <button class="next" onclick="nextImage()">❯</button>
+    </div>
+    <p><br/>This Power BI dashboard provides an in-depth analysis of marketing performance through four interactive pages. The Overview page presents a summary of key metrics, including conversion rates, social media engagement, and customer reviews, along with visual trends for easy interpretation. The Conversion Details page dives deeper into conversion rates by product and time, offering insights into what drives customer actions. The Social Media Overview page highlights the impact of social media channels, tracking views, clicks, and likes to assess digital engagement. Finally, the Customer Review Details page analyzes customer feedback, showcasing average ratings by product and month to help improve product satisfaction and performance. This dynamic tool empowers data-driven decision-making for effective marketing strategies.</p>
+</section>
+
+
+<!-- Data Visualization and Overview Analysis and Recommendations Section -->
+<section id="data-analysis" class="container">
+    <p></p>
+    <h2>Overview Analysis</h2>
+    <p>This section provides an in-depth analysis of key metrics such as conversion rates, customer engagement, and feedback, along with actionable recommendations for improvement.</p>
+    
+    <!-- Overview -->
+    <div style="display: flex; align-items: center; margin-bottom: 30px;">
+        <img src="images/Marketing_Prj/notes_1.JPG" alt="Conversion Analysis" style="width: 40%; margin-right: 20px; border-radius: 8px;">
+        <div>
+            <h3>Overview</h3>
+            <ul>
+                <li><strong>Decreased Conversion Rates:</strong> The conversion rate demonstrated a strong rebound in December, reaching 10.3%, despite a notable dip to 5.0% in October. </li>
+                <li><strong>Reduced Customer Engagement:</strong> There is a decline in overall social media engagement, with views dropping throughout the year.
+                    While clicks and likes are low compared to views, the click-through rate stands at 15.37%, meaning that engaged users are still interacting effectively.
+                </li>
+                <li><strong>Customer Feedback Analysis:</strong> Customer ratings have remained consistent, averaging around 3.7 throughout the year.
+                    Although stable, the average rating is below the target of 4.0, suggesting a need for focused improvements in customer satisfaction, for products below 3,5.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Decreased Conversion Rates -->
+    <div style="display: flex; align-items: center; margin-bottom: 30px;">
+        <img src="images/Marketing_Prj/notes_2.JPG" alt="Conversion Analysis" style="width: 40%; margin-right: 20px; border-radius: 8px;">
+        <div>
+            <h3>Decreased Conversion Rates</h3>
+            <ul>
+                <li><strong>General Conversion Trend:</strong> Conversion rates varied throughout the year, with February and July performing strongly due to seasonal peaks.</li>
+                <li><strong>Lowest Conversion Month:</strong> May had the lowest conversion rate (4.48%), indicating a need for revisiting marketing strategies.</li>
+                <li><strong>Highest Conversion Rates:</strong> January led with an 19.61% conversion rate, largely driven by seasonal demand for Ski Boots (150% conversion).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Reduced Customer Engagement -->
+    <div style="display: flex; align-items: center; margin-bottom: 30px;">
+        <div style="margin-right: 20px;">
+            <h3>Reduced Customer Engagement</h3>
+            <ul>
+                <li><strong>Declining Views:</strong> Views peaked in February and July but declined steadily from August onward.</li>
+                <li><strong>Low Interaction Rates:</strong> Clicks and likes were low compared to views, highlighting the need for more engaging content.</li>
+                <li><strong>Content Type Performance:</strong> Blog content performed best, especially in April and July, while social media and videos showed steady but lower engagement.</li>
+            </ul>
+        </div>
+        <img src="images/Marketing_Prj/notes_3.JPG" alt="Engagement Analysis" style="width: 40%; border-radius: 8px;">
+    </div>
+
+    <!-- Customer Feedback Analysis -->
+    <div style="display: flex; align-items: center; margin-bottom: 30px;">
+        <img src="images/Marketing_Prj/notes_4.JPG" alt="Feedback Analysis" style="width: 40%; margin-right: 20px; border-radius: 8px;">
+        <div>
+            <h3>Customer Feedback Analysis</h3>
+            <ul>
+                <li><strong>Customer Ratings Distribution:</strong> Most ratings are positive (4-5 stars), but a notable proportion of lower ratings suggests areas for improvement.</li>
+                <li><strong>Sentiment Analysis:</strong> Positive sentiment dominates (275 reviews), with 82 reviews showing negative sentiment.</li>
+                <li><strong>Opportunity for Improvement:</strong> Addressing mixed and negative reviews could boost satisfaction and improve the average rating closer to the 4.0 target.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Goals and Actions -->
+    <div>
+        <h3>Actions</h3>
+        <ul>
+            <li><strong>Increase Conversion Rates:</strong> Focus marketing on high-conversion products like Ski Boots and Kayaks. Utilize seasonal promotions and personalized campaigns during peak months.</li>
+            <li><strong>Enhance Customer Engagement:</strong> Experiment with engaging formats like interactive videos and user-generated content. Optimize calls-to-action for better engagement, especially during low-performing months.</li>
+            <li><strong>Improve Customer Feedback Scores:</strong> Analyze mixed and negative reviews to identify and address common concerns. Follow up with dissatisfied customers to resolve issues and encourage re-rating.</li>
+        </ul>
+    </div>
+</section>
+
+
+
+<!-- JS Code -->
+<script>
+    const images = [
+        'images/Marketing_Prj/dashboard_02.JPG',
+        'images/Marketing_Prj/dashboard_03.JPG',
+        'images/Marketing_Prj/dashboard_04.JPG',
+        'images/Marketing_Prj/dashboard_01.JPG' // Add more images as needed
+    ];
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const carouselImage = document.getElementById('carousel-image');
+        carouselImage.src = images[index];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
+        showImage(currentIndex);
+    }
+
+
+
+
+    document.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#nav a');
+    
+        sections.forEach((section, i) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[i].classList.add('active');
+            }
+        });
+    });
+    
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+    
+        function setActiveLink() {
+            let currentSection = null;
+    
+            // Check which section is in view
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+    
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.id;
+                }
+            });
+    
+            // Update the active link
+            navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href").substring(1) === currentSection);
+            });
+        }
+    
+        window.addEventListener("scroll", setActiveLink);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+    
+        function setActiveLink() {
+            let currentSection = null;
+    
+            // Check which section is in view
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+    
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.id;
+                }
+            });
+    
+            // Update the active link
+            navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href").substring(1) === currentSection);
+            });
+        }
+    
+        window.addEventListener("scroll", setActiveLink);
+    });
+    
+</script>
+
+</body>
+</html>

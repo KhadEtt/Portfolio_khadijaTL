@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Marketing Analytics Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Simplified Navbar */
+        #nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 2px 0;
+            z-index: 1000;
+        }
+
+        #nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2px;
+        }
+
+        #nav li {
+            font-size: 14px;
+        }
+
+        #nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        #nav a:hover {
+            color: #00c6ff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .screenshot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .screenshot img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        .code-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+
+        
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .carousel img {
+            width: 60%;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+        
+        .carousel button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel button:hover {
+            background-color: #00c6ff;
+        }
+        
+        .carousel button:focus {
+            outline: none;
+        }
+
+        section {
+            padding: 60px 20px;
+            margin-top: 0; /* Remove extra margin */
+        }
+        
+        #analytics {
+            padding-top: 80px; /* Add some padding to avoid overlap */
+            position: relative;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Make text stand out */
+            background: url('images/marketing-bg.png') no-repeat center center;
+            background-size: cover;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            padding: 250px 20px;
+            padding-bottom: 10px;
+        }
+        #analytics::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Dark overlay for contrast .6*/
+            z-index: 0;
+
+        }
+        
+        #analytics .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+
+        #analytics h1 {
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px 40px; 
+            border-radius: 12px;
+            font-size: 3.5rem; 
+            color: #ffffff; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+        section {
+            padding: 5px 0px; 
+            margin: 0px 0; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #nav a.active {
+            color: #fff; /* Example: white text for the active link */
+            background-color: #00c6ff; /* Example: blue background for the active link */
+            border-radius: 5px; /* Optional styling */
+        }
+        #start{
+            padding-top: 0;
+        }
+        .responsive-image {
+            width: 80%;
+            max-width: 100%; /* Ensures image doesn't exceed container width */
+            height: auto; /* Maintains aspect ratio */
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Portfolio</a></li> 
+        <li><a href="#start">Marketing Analytics</a></li> 
+        <li><a href="#sql-code">Data Cleaning</a></li>
+        <li><a href="#data-model">Data Modeling</a></li>
+        <li><a href="#vis">Visualization</a></li>
+        <li><a href="#data-analysis">Analysis</a></li>
+    </ul>
+</nav>
+
+<!-- Marketing Analytics Section -->
+<section id="start">
+<div id="analytics" style="background: url('images/Sales_prj/background.jpg') no-repeat center center; background-size: cover; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); padding: 250px 0px;">
+    <div class="container" style="text-align: center;">
+        <h1 style="font-size: 3rem; margin-bottom: 20px;">Sales Analytics</h1>
+    </div>
+</div>
+<!-- introduction -->
+<div>
+    <div class="container">
+      <p></p>
+      <p>
+        In this project, I used the AdventureWorks database—a sample dataset provided by Microsoft that simulates the operations of a fictional bicycle company—to dive deep into sales analytics. The goal was to transform raw data into actionable insights by leveraging SQL for data extraction and cleaning, followed by Power BI for visualization. Through this analysis, I explored trends in product sales, identified top customer segments, and examined regional performance. In this article, I'll walk you through the steps I took to create a dynamic sales dashboard, share key findings, and provide recommendations that could drive strategic decision-making for any business.
+      </p>
+    </div>
+  
+    <div class="container">
+      <h2>Business Request & User Stories</h2>
+      <p>
+        The business requested an executive sales report for sales managers as the primary deliverable for this data analyst project. Based on this request, the following user stories were defined to guide the project and ensure that the acceptance criteria were consistently met throughout its execution.  
+      </p>
+      <img src="images/Sales_prj/table.JPG" alt="Description of image" class="responsive-image">
+    </div>
+</div>
+</section>
+
+<!-- SQL Code Section -->
+<section id="sql-code" class="container">
+    <p></p>
+    <h2>Data Cleansing & Transformation (SQL)</h2>
+    <p> 
+        To create the necessary data model for analysis and to address the business needs outlined in the user stories, the following tables were extracted and prepared using SQL.<br/>
+        One data source, sales budgets, was provided in Excel format and integrated into the data model during a later stage of the process.
+        <br/> Below are examples of SQL statements used for data cleansing and transformation to ensure the data was ready for analysis.
+    </p>
+    <div  id="sql-code" class="code-block">
+        <pre>
+            -- Cleansed DIM_Customers Table --
+            SELECT 
+              c.customerkey AS CustomerKey, 
+              --      ,[GeographyKey]
+              --      ,[CustomerAlternateKey]
+              --      ,[Title]
+              c.firstname AS [First Name], 
+              --      ,[MiddleName]
+              c.lastname AS [Last Name], 
+              c.firstname + ' ' + lastname AS [Full Name], 
+              -- Combined First and Last Name
+              --      ,[NameStyle]
+              --      ,[BirthDate]
+              --      ,[MaritalStatus]
+              --      ,[Suffix]
+              CASE c.gender WHEN 'M' THEN 'Male' WHEN 'F' THEN 'Female' END AS Gender,
+              --      ,[EmailAddress]
+              --      ,[YearlyIncome]
+              --      ,[TotalChildren]
+              --      ,[NumberChildrenAtHome]
+              --      ,[EnglishEducation]
+              --      ,[SpanishEducation]
+              --      ,[FrenchEducation]
+              --      ,[EnglishOccupation]
+              --      ,[SpanishOccupation]
+              --      ,[FrenchOccupation]
+              --      ,[HouseOwnerFlag]
+              --      ,[NumberCarsOwned]
+              --      ,[AddressLine1]
+              --      ,[AddressLine2]
+              --      ,[Phone]
+              c.datefirstpurchase AS DateFirstPurchase, 
+              --      ,[CommuteDistance]
+              g.city AS [Customer City] -- Joined in Customer City from Geography Table
+            FROM 
+              [AdventureWorksDW2022].[dbo].[DimCustomer] as c
+              LEFT JOIN dbo.dimgeography AS g ON g.geographykey = c.geographykey 
+            ORDER BY 
+              CustomerKey ASC -- Ordered List by CustomerKey
+            
+            </pre>
+    </div>
+</section>
+
+<!-- Data Model Section -->
+<section id="data-model" class="container">
+    <p></p>
+    <h2>Data Model</h2>
+    <p>
+        Below is a screenshot of the data model after the cleansed and prepared tables were loaded into Power BI.
+        <br/>This data model illustrates how FACT_Budget is connected to FACT_Sales_table and other relevant DIM tables, ensuring seamless integration for analysis.
+    </p>
+    <img src="images/Sales_prj/data_model.JPG" alt="Data Model Screenshot" style="width: 100%; border-radius: 8px;" />
+</section>
+
+<!-- Visualization Section -->
+<section id="vis" class="container">
+    <p></p>
+    <h2>Sales Management Dashboard</h2>
+    <div class="carousel">
+        <button class="prev" onclick="prevImage()">❮</button>
+        <img id="carousel-image" src="images/Sales_prj/dashboard_01.JPG" alt="Dashboard Visualization" />
+        <button class="next" onclick="nextImage()">❯</button>
+    </div>
+    <p>
+     <br/>The completed Sales Management Dashboard is designed with three pages to provide comprehensive insights. The Sales Overview page serves as a high-level dashboard, summarizing key metrics at a glance. The Customer Details page combines tables and visualizations to analyze sales trends by customer, while the Product Details page highlights sales performance over time, segmented by product. This structure ensures clarity and supports data-driven decision-making for sales managers.
+    </p>
+</section>
+
+
+<!-- Overview Analysis and Recommendations Section -->
+<section id="data-analysis" class="container">
+    <p></p>
+    <h2>Project Analysis</h2>
+
+    <div class="analysis-section">
+        <h3>Analysis: </h3>
+        <p>The dashboard includes three views: Sales Overview, Customer Details, and Product Details. Here's an analysis of each:</p>
+        
+        <h4>1. Sales Overview</h4>
+        <ul>
+            <li><strong>Overall Sales Performance:</strong>
+                <ul>
+                    <li>Total Sales: 16,351,550.34</li>
+                    <li>Budget: 15,300,000</li>
+                    <li>Sales Variance: 1,051,550.34, indicating that sales exceeded the budget by about 6.87%.</li>
+                </ul>
+            </li>
+            <li><strong>Sales by Product Category:</strong>
+                <ul>
+                    <li>Bikes dominate with 93.93% of sales (15.36M).</li>
+                    <li>Accessories and Clothing are much smaller portions, suggesting that focusing on bikes has driven most of the sales.</li>
+                </ul>
+            </li>
+            <li><strong>Top Customers and Products:</strong>
+                <ul>
+                    <li>Top 10 Customers: Jordan Turner is the highest contributor, with 11,484 in sales.</li>
+                    <li>Top 10 Products: The Mountain Bikes series is the best-selling product line, with sales figures close to or exceeding 900,000 each.</li>
+                </ul>
+            </li>
+            <li><strong>Monthly Sales vs. Budget:</strong> Sales and budget performance are relatively close throughout the year, with some peaks observed in April, June, and November.</li>
+            <li><strong>Geographic Sales Distribution:</strong> Sales are spread globally, with high density in North America and Europe, indicating these as the key markets.</li>
+        </ul>
+
+        <h4>2. Customer Details</h4>
+        <ul>
+            <li><strong>Sales Insights by Customer:</strong>
+                <ul>
+                    <li>Similar overall sales figure as the Sales Overview (16,351,550.34).</li>
+                    <li>Monthly breakdown of sales by each top customer, with fluctuations indicating varying customer spending habits.</li>
+                    <li>Top Customers:
+                        <ul>
+                            <li>Jordan Turner, Maurice Shan, and Janet Munoz are leading customers, contributing significantly to yearly sales.</li>
+                            <li>Monthly variations reflect possible seasonality or purchase patterns.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Sales by Region:</strong> Map visualization shows similar trends, with North America and Europe as primary markets.</li>
+        </ul>
+
+        <h4>3. Product Details</h4>
+        <ul>
+            <li><strong>Sales by Product and Sub-Category:</strong>
+                <ul>
+                    <li>Bikes are the main contributors, with sub-categories like Touring Bikes and Mountain Bikes leading sales.</li>
+                    <li>Top Products by Sales:
+                        <ul>
+                            <li>Touring Bikes are the best-sellers with 50,381 units, followed by Mountain Bikes and Road Bikes.</li>
+                            <li>Accessories (Helmets, Gloves) have lower sales, suggesting they are supplementary.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Monthly Sales by Product Category:</strong> Detailed breakdown shows Bikes with consistently high sales, while Clothing has smaller sales amounts monthly.</li>
+        </ul>
+
+        <h3>Key Takeaways:</h3>
+        <ul>
+            <li><strong>Product Focus:</strong> Bikes drive primary sales, with specific models performing well.</li>
+            <li><strong>Top Markets:</strong> North America and Europe are leading regions.</li>
+            <li><strong>Top Customers:</strong> High-spending customers contribute significantly to sales.</li>
+            <li><strong>Sales Performance:</strong> Actual sales exceeded the budget, with strong months in April, June, and November.</li>
+        </ul>
+
+        <h3>Recommendations:</h3>
+        <ul>
+            <li><strong>Expand High-Performing Product Lines:</strong> Invest in expanding bikes and bundle accessories to increase sales.</li>
+            <li><strong>Focus on High-Value Customers:</strong> Develop loyalty programs for top customers and use segmentation for targeted marketing.</li>
+            <li><strong>Enhance Presence in Key Markets:</strong> Increase efforts in North America and Europe with local offers.</li>
+            <li><strong>Boost Seasonal Sales:</strong> Implement targeted promotions in peak months and strategize for low-sales months.</li>
+            <li><strong>Increase Budget for High-ROI Products:</strong> Review and adjust the budget, focusing on high-performing products.</li>
+            <li><strong>Grow Accessories Segment:</strong> Research accessory demand and encourage accessory sales post-purchase.</li>
+            <li><strong>Leverage Data Insights:</strong> Regularly review sales performance and gather customer feedback.</li>
+            <li><strong>Develop E-commerce Strategy:</strong> Improve online shopping experience and offer exclusive online promotions.</li>
+        </ul>
+    </div>
+
+
+
+
+</section>
+
+
+
+<!-- JS Code -->
+<script>
+    const images = [
+        'images/Sales_prj/dashboard_02.JPG',
+        'images/Sales_prj/dashboard_03.JPG',
+        'images/Sales_prj/dashboard_01.JPG' // Add more images as needed
+    ];
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const carouselImage = document.getElementById('carousel-image');
+        carouselImage.src = images[index];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
+        showImage(currentIndex);
+    }
+
+
+
+
+    document.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#nav a');
+    
+        sections.forEach((section, i) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[i].classList.add('active');
+            }
+        });
+    });
+    
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+    
+        function setActiveLink() {
+            let currentSection = null;
+    
+            // Check which section is in view
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+    
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.id;
+                }
+            });
+    
+            // Update the active link
+            navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href").substring(1) === currentSection);
+            });
+        }
+    
+        window.addEventListener("scroll", setActiveLink);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#nav a");
+        const sections = Array.from(document.querySelectorAll("section"));
+    
+        function setActiveLink() {
+            let currentSection = null;
+    
+            // Check which section is in view
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+    
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.id;
+                }
+            });
+    
+            // Update the active link
+            navLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href").substring(1) === currentSection);
+            });
+        }
+    
+        window.addEventListener("scroll", setActiveLink);
+    });
+    
+</script>
+
+</body>
+</html>
